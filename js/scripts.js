@@ -19,13 +19,9 @@ let pokemonList = [
     },
 ];
 
-for (let i = 0; i <= 3; i++) {
-    console.log(pokemonList[i]);
-    document.write(pokemonList);
-
-
-  }
-
-
-let welcomeMessage1 = "Bulbasaur (height: 7)";
-console.log(welcomeMessage1);
+{
+for (let i = 0; i <= 0; i++) { document.write("<p>" + pokemonList[0].name, pokemonList[0].height + "</p>");}
+for (let i = 1; i <= 1; i++) { document.write("<p>" + pokemonList[1].name , pokemonList[1].height + "</p>");}
+for (let i = 2; i <= 2; i++) { document.write("<p>" + pokemonList[2].name, pokemonList[2].height + "</p>");}
+for (let i = 2; i <= 2; i++) { document.write("<p>" + pokemonList[2].name, "Height= 10", "Wow its Big" + "</p>");}
+ }
