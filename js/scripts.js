@@ -1,4 +1,7 @@
+
+
 let pokemonList = [
+
     {
         name: "Bulbazaur",
         height: 7,
@@ -15,3 +18,10 @@ let pokemonList = [
         type: "Fire",
     },
 ];
+
+for (let i = 0; i <= pokemonList; i++) {
+    console.log(pokemonList[i]);
+    document.write(pokemonList);
+
+
+  }
