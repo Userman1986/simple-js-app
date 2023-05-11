@@ -25,3 +25,7 @@ for (let i = 0; i <= 3; i++) {
 
 
   }
+
+
+let welcomeMessage1 = "Bulbasaur (height: 7)";
+console.log(welcomeMessage1);
