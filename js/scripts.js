@@ -19,7 +19,7 @@ let pokemonList = [
     },
 ];
 
-for (let i = 0; i <= pokemonList; i++) {
+for (let i = 0; i <= 3; i++) {
     console.log(pokemonList[i]);
     document.write(pokemonList);
 
