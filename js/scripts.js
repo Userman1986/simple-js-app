@@ -18,21 +18,13 @@ let pokemonList = [
         type: "Fire",
     },
 ];
-for (let i = 0; i <= pokemonList.length; i++) 
+for (let i = 0; i < pokemonList.length; i++) 
 {
-    if (pokemonList[i].height > 9)
-    {
-
-       
-        document.write("<p>" + pokemonList[i].name + ", Height=" + pokemonList[i].height, "  Wow its Big" + "</p>" );
-}
-else (pokemonList[i].height < 9)
-
-{
-    document.write("<p>" + pokemonList[i].name + ", Height=" + pokemonList[i].height + "</p>" );
-}
+  
+    if (pokemonList[i].height > 9) 
+    { document.write("<p>" + pokemonList[i].name + ", Height=" + pokemonList[i].height, " Wow its Big" + "</p>" ); } 
+    else if (pokemonList[i].height <= 9) { document.write("<p>" + pokemonList[i].name + ", Height=" + pokemonList[i].height + "</p>" ); }
 
 
 
 }
-    
