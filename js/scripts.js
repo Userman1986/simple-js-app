@@ -40,7 +40,27 @@ let pokemonRepository = (function () {
     button.classList.add("button-class");
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
+  
   }
+
+  let button = document.querySelector('button');
+
+  button.addEventListener('click', function (event) 
+  
+  {
+    let target = showDetails(pokemon);
+    target.classList.toggle('button');
+   
+  });
+
+
+
+  function showDetails(item) {
+    pokemonRepository.loadDetails(item)
+  }
+  
+
+
   return {
     add: add,
     getAll: getAll,
