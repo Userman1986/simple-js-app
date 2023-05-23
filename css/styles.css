@@ -1,17 +1,32 @@
-.button-class {
-    background-color: #ae4c56; /* Red */
+/* styles.css */
+
+#pokemon-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #pokemon-list li {
+    margin-bottom: 10px;
+  }
+  
+  button {
+    display: block;
+    width: 200px;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
     border: none;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+    border-radius: 5px;
     cursor: pointer;
-    background-color: white;
-    color: black;
-    border: 2px solid #4caf50;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  #pokemon-details {
+    margin-top: 20px;
   }
