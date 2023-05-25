@@ -86,26 +86,28 @@ let pokemonRepository = (function() {
   
 
   function showDetails(pokemon) {
-    const modal = document.getElementById('modal');
-    const modalName = document.getElementById('modal-name');
-    const modalHeight = document.getElementById('modal-height');
-    const modalImage = document.getElementById('modal-image');
-  
-    modalName.textContent = pokemon.name;
-    modalHeight.textContent = 'Height: ' + pokemon.height;
-    modalImage.src = pokemon.imgUrl; // Set the source of the image
-  
-    modal.style.display = 'block';
-  
-    // Close modal when the close button or outside the modal is clicked
-    const closeBtn = document.getElementsByClassName('close')[0];
-    window.addEventListener('click', function(event) {
-      if (event.target == modal || event.target == closeBtn) {
-        modal.style.display = 'none';
-      }
-    });
+    loadDetails(pokemon).then(function(){
+
+      const modal = document.getElementById('modal');
+      const modalName = document.getElementById('modal-name');
+      const modalHeight = document.getElementById('modal-height');
+      const modalImage = document.getElementById('modal-image');
+
+      modalName.textContent = pokemon.name;
+      modalHeight.textContent = 'Height: ' + pokemon.height;
+      modalImage.src = pokemon.imgUrl; // Set the source of the image
+
+      modal.style.display = 'block';
+
+      // Close modal when the close button or outside the modal is clicked
+      const closeBtn = document.getElementsByClassName('close')[0];
+      window.addEventListener('click', function(event) {
+        if (event.target == modal || event.target == closeBtn) {
+          modal.style.display = 'none';
+        }
+      });
+    })
   }
-  
   
  
   
