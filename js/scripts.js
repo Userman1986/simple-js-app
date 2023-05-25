@@ -61,28 +61,54 @@ let pokemonRepository = (function() {
         return response.json();
       })
       .then(function(details) {
-        pokemon.height = details.height;
+        pokemon.height = details.height / 10; // Convert height to meters
+        pokemon.imgUrl = details.sprites.front_default; // Set the image URL
         pokemon.types = details.types.map(function(type) {
           return type.type.name;
         });
-        pokemon.sprite = details.sprites.front_default;
-        pokemon.sprite2 = details.sprites.back_default;
-        pokemon.weight = details.weight;
+        return pokemon; // Return the updated pokemon object
+      })
+      .then(function(pokemon) {
+        return new Promise(function(resolve) {
+          // Create a new Image object to load the image URL
+          const img = new Image();
+          img.onload = function() {
+            resolve(pokemon); // Resolve the promise with the updated pokemon object
+          };
+          img.src = pokemon.imgUrl; // Set the source of the image
+        });
       })
       .catch(function(e) {
         console.error(e);
       });
   }
+  
+  
 
   function showDetails(pokemon) {
-    loadDetails(pokemon).then(function() {
-      const pokemonDetails = document.getElementById('pokemon-details');
-
-      pokemonDetails.innerHTML = `<h2>${pokemon.name}</h2>
-                                <p>Height: ${pokemon.height}</p>
-                                <p>Types: ${pokemon.types.join(', ')}</p>`;
+    const modal = document.getElementById('modal');
+    const modalName = document.getElementById('modal-name');
+    const modalHeight = document.getElementById('modal-height');
+    const modalImage = document.getElementById('modal-image');
+  
+    modalName.textContent = pokemon.name;
+    modalHeight.textContent = 'Height: ' + pokemon.height;
+    modalImage.src = pokemon.imgUrl; // Set the source of the image
+  
+    modal.style.display = 'block';
+  
+    // Close modal when the close button or outside the modal is clicked
+    const closeBtn = document.getElementsByClassName('close')[0];
+    window.addEventListener('click', function(event) {
+      if (event.target == modal || event.target == closeBtn) {
+        modal.style.display = 'none';
+      }
     });
   }
+  
+  
+ 
+  
 
   return {
     add: addListItem,
