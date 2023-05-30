@@ -23,7 +23,10 @@ let pokemonRepository = (function() {
     const pokemonList = document.getElementById('pokemon-list');
 
     const listItem = document.createElement('li');
+    listItem.classList.add('list-group-item');
+
     const button = document.createElement('button');
+    button.classList.add('btn', 'btn-primary');
     button.textContent = pokemon.name;
 
     button.addEventListener('click', function() {
@@ -82,13 +85,9 @@ let pokemonRepository = (function() {
         console.error(e);
       });
   }
-  
-  
 
   function showDetails(pokemon) {
-    loadDetails(pokemon).then(function(){
-
-      const modal = document.getElementById('modal');
+    loadDetails(pokemon).then(function() {
       const modalName = document.getElementById('modal-name');
       const modalHeight = document.getElementById('modal-height');
       const modalImage = document.getElementById('modal-image');
@@ -97,20 +96,9 @@ let pokemonRepository = (function() {
       modalHeight.textContent = 'Height: ' + pokemon.height;
       modalImage.src = pokemon.imgUrl; // Set the source of the image
 
-      modal.style.display = 'block';
-
-      // Close modal when the close button or outside the modal is clicked
-      const closeBtn = document.getElementsByClassName('close')[0];
-      window.addEventListener('click', function(event) {
-        if (event.target == modal || event.target == closeBtn) {
-          modal.style.display = 'none';
-        }
-      });
-    })
+      $('#modal').modal('show');
+    });
   }
-  
- 
-  
 
   return {
     add: addListItem,
@@ -126,6 +114,5 @@ pokemonRepository.loadList().then(function() {
     pokemonRepository.add(pokemon);
   });
 });
-
 
 console.log(pokemonRepository.getAll());
